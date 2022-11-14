@@ -55,11 +55,6 @@ form input, textarea {
     background-color: rgb(255,188,13);
 }
 
-/*.items-form {
-    display: flex;
-    flex-direction: row;
-}*/
-
 input,
 select,
 textarea {
