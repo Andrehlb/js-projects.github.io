@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p{
+    padding: 10px;
+}
+
+nav {
+    height: 80px;
+    background-color: RGB(255,188,13); /* Mac Donald's yellow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 15vw;;
+}
+
+header {
+    font-size: 1.597rem;
+    font-weight: bold;
+    /*font-style: italic;*/
+
+}
+
+h2 {
+    margin-bottom: 59.1286729879px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 0 1.597rem;
+}
+
+nav a:hover {
+    color: rgb(247, 247, 247);
+    transition: 0.3s;
+}
+
+form {
+    display: flex;
+    align-self: center;
+    height: 95vmaximum;;
+    background-color: rgb(0, 0, 0);
+    color: RGB(247, 247, 247);
+    padding: 8vh 30vw;
+}
+
+form input, textarea {
+    background-color: rgb(255,188,13);
+}
+
+/*.items-form {
+    display: flex;
+    flex-direction: row;
+}*/
+
+input,
+select,
+textarea {
+    width: 40.52739537881vw;
+    display: block;
+    padding: 0.5rem 0.75025rem;
+    border-radius: 10.946px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 95vh;
+    padding: 3rem 15vw;
+}
+
+.column-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: RGB(0, 0, 0);
+    padding: 0rem 2rem;
+}
+
+.column-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-image {
+    width: 100%;
+    height: 100%;
+}
+
+#form-button {
+    margin-top: 30px;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    border: none;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255,188,13);
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+#form-button:hover {
+    background: rgb(247, 247, 247);
+    transition: 0.3s;
+}
+
+#CTA-button {
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    border: none;
+    color: rgb(255,188,13);
+    background: rgb(219,0,7);
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#CTA-button:hover {
+    background-color: rgb(247, 247, 247);
+    color: rgb(219,0,7);
+    transition: 0.2s;
+}
+
+#home {
+    background-color: #ffbc0d
+}
+
+#movies-gender {
+    background-color: rgb(255,188,13);
+}
