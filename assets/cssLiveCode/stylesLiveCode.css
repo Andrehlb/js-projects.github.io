@@ -16,6 +16,34 @@ body {
     -web-font-smoothing: antialiased;
 }
 
+a {
+    text-decoration: none;
+}
+
 header {
     background-color: black;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80.6515533004939px;
+    margin: auto;
+}
+
+header nav ul {
+    display: flex;
+}
+
+header nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.2486269025rem;
+    padding: 1.836311903rem;
+    transition: all 250ms linear 0s;
+}
+
+header img {
+    height: 180px;
 }
