@@ -44,6 +44,14 @@ header nav ul li a {
     transition: all 250ms linear 0s;
 }
 
+header nav ul li a:hover {
+    background: rgba(159, 240, 10, 0.699)
+}
+
 header img {
     height: 180px;
+}
+
+#checkbox-menu {
+    display: none;
 }
