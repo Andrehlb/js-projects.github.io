@@ -42,10 +42,12 @@ header nav ul li a {
     font-size: 1.2486269025rem;
     padding: 1.836311903rem;
     transition: all 250ms linear 0s;
+    border: 2px solid whitesmoke;
 }
 
 header nav ul li a:hover {
-    background: rgba(159, 240, 10, 0.699)
+    background: rgba(141, 245, 5, 0.5)
+    
 }
 
 header img {
