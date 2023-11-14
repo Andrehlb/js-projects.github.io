@@ -1,0 +1,1 @@
+var valorEmDolar = parseFloat(prompt("Qual o valor em dolar que você quer converter?"))
