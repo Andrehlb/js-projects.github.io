@@ -34,4 +34,32 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
- 
+    /* Efeito de hover */
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10 px 20 px rgba(0,0,0,0.2);
+}
+
+/* Estilos para conteúdo dentro de cada card */
+.card-content {
+    padding: 20PX;
+    text-align: center;
+}
+
+.card-content h2 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+/* Responsividade */
+@media (min-width: 600px) {
+    .card-container {
+        justify-content: flex-start;
+    }
+
+    .card {
+        margin-right: 20px;
+    }
+}
