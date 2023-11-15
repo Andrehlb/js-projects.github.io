@@ -1,3 +1,10 @@
+// Utilitários para fazer requisições HTTP
+const fetchData = async (url) => {
+    
+}
+
+
+
 // var valorEmDolar = parseFloat(prompt("Qual o valor em dolar que você quer converter?"))
 
 const readline = require('readline').createInterface({
