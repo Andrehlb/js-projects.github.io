@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversores</title>
-    <link rel="stylesheet" href="assets\css\style-conversores.css">
+    <link rel="stylesheet" href="assets/css/style-conversores.css">
     <script src="script-conversores.js" defer></script>
 </head>
 
@@ -14,7 +14,17 @@
         <div class="card" id="conversor-moedas">
             <div class="card-content">
                 <h2>Conversor de Moedas</h2>
-                <!-- Elementos do conversor de moedas aqui -->
+                <input type="number" id="valorReais" placeholder="Valor em REais (R$)" class="input-field"/>
+                <select id="moedaSelecionada" class input-field">
+                    <option value="USD">Dólar Americano (USD)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="GBP">Libra Esterlina (GBP)</option>
+                    <option value="JPY">Iene Japonês (JPY)</option>
+                    <option value="CHF">Franco Suíço (CHF)</option>
+                    <option value="YUAN">Yuan Chinês (YUAN)</option>
+                </select>
+                <button id="botaoConverterMoedas" class="convet-button">Converter</button>
+                <p id="resultadosMoedas"class="resultado"></p>
             </div>
         </div>
 

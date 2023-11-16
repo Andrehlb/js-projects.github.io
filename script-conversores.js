@@ -21,7 +21,7 @@ const fetchData = async (url) => {
 // });
 
 // Conversor de Moedas
-const converterMoedas = asunc () => {
+const converterMoedas = async () => {
     try {
         const valorEmReais = parseFloat(document.getElementById("valorReais").value);
         const dados = await fetchData('URL_DA_API_DE_TAXAS');

@@ -16,6 +16,8 @@
   
   /* Estilos para o container dos cards */
   .card-container {
+    gap: 20px;
+    flex-wrap: wrap;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -26,6 +28,7 @@
   .card {
     width: 100%;
     max-width: 300px;
+    margin: 0 auto;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -38,19 +41,20 @@
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10 px 20 px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 /* Estilos para conteúdo dentro de cada card */
 .card-content {
-    padding: 20PX;
+    padding: 20px;
     text-align: center;
 }
 
 .card-content h2 {
+    font-size: 24px;
+    color: #333;
     margin-bottom: 10px;
-    font-size: 16px;
-    color: #666;
+
 }
 
 /* Responsividade */
