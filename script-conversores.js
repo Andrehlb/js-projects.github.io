@@ -3,7 +3,9 @@ const fetchData = async (url) => {
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
-}
+    }
+    return await response.json();
+};
 
 // // var valorEmDolar = parseFloat(prompt("Qual o valor em dolar que você quer converter?"))
 
@@ -51,4 +53,4 @@ document.addEventListener('DOMcontentLoaded', () => {
     document.getElementById("botaoConverterMoedas").addEventListener('click', converterMoedas);
     document.getElementById("botaoConverterDistancia").addEventListener('click', converterDistanciaInterestelar);
     document.getElementById("botaoConverterCripto").addEventListener('click', converterParaCripto);
-}
+});
