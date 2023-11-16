@@ -39,3 +39,16 @@ const converterDistanciaInterestelar = () => {
     document.getElementById("resultadoDistancia").innerText = '${valorEmKm.tofixed(2)} KM';
 }
 
+// Conversosr de criptomoedas
+const converterParaCripto = () => {
+    const valorEmReais = parseFloat(document.getElementById("valorReaisCripto").value);
+    const valorEmBitcoin = valorEmReais / 225000;
+    document.getElementById("resultadoCripto").innerText = '${valorEmBitcoin.tofixed(2)} BTC';
+}
+
+// Adicionando Event Listeners para os botões de conversão
+document.addEventListener('DOMcontentLoaded', () => {
+    document.getElementById("botaoConverterMoedas").addEventListener('click', converterMoedas);
+    document.getElementById("botaoConverterDistancia").addEventListener('click', converterDistanciaInterestelar);
+    document.getElementById("botaoConverterCripto").addEventListener('click', converterParaCripto);
+}
