@@ -1,10 +1,13 @@
 // Utilitários para fazer requisições HTTP
-const fetchData = async (url) => {
+const fetchData = async () => {
+    const url = 'https://cdn.moeda.info/api/bcb.jason'; // Ebdpoint da API do Banco Central do Brasil.
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
     return await response.json();
+   // console.log(data); // depuração: logando os dados para ver o que estamos recebendo.
+   // return data;
 };
 
 // // var valorEmDolar = parseFloat(prompt("Qual o valor em dolar que você quer converter?"))
@@ -23,30 +26,46 @@ const fetchData = async (url) => {
 // Conversor de Moedas
 const converterMoedas = async () => {
     try {
-        const valorEmReais = parseFloat(document.getElementById("valorReais").value);
-        const dados = await fetchData('https://cdn.moeda.info/api/latest.json'); //Substituir pela URL correta da API
-        document.getElementById("apiSource").innerText = 'Source: https://www.moeda.info/';
-        const taxaDolar = dados.rates['USD']; //Substituir pela chave correta da API
-        const valorEmDolar = valorEmReais / taxaDolar;
-        document.getElementById("resultadoMoedas").innerText = `${valorEmDolar.toFixed(2)} USD`;
+        const valorEmReais = parseFloat(document.getElementById("valorReais").value); //P1 Captura valor em reais inserido (input) pelo usuário.
+        const moedaSelecionada = document.getElementById("moedaSelecionada").value; // P2 Detecta qual moeda foi selecionada no dropdown.
+
+        const dados = await fetchData(); // P3.1 Envia uma solicitação para a API de conversão de moedas.        document.getElementById("apiSource").innerText = 'Source: https://www.moeda.info/';
+
+        if (!dados.rates[moedaSelecionada]) { // P3.3 Verifica se a moeda selecionada está disponível na API.}
+            throw new Error(`A taxa de câmbio para ${moedaSelecionada} não está disponível.`);
+        }
+
+       // document.getElementById("apiSource").innerText = 'Source: https://www.moeda.info/'; // P3.2 Atualiza a fonte da API no DOM.
+        
+        const taxaConversao = dados.rates[moedaSelecionada]; // P4.1 Calcula o valor convertido.
+        const valorConvertido = valorEmReais * taxaConversao; // P4.2 Aqui, valor inserido em reais é multiplicado pela taxa de conversão.
+        
+        document.getElementById("resultadoMoedas").innerText = `${valorConvertido.toFixed(2)} ${moedaSelecionada}`; // P5 Atulaliza a página web com o valor convertido.
+        document.getElementById("APIsource").innerText = 'Fonte: https://www.moeda.info/';
     }   catch (error) {
         console.error('Erro ao converter moedas:', error);
+        document.getElementeById("resultadoMoedas").innerText = 'Erro ma conversão.';
     }
-
 };
+
+// Adicionando Event Listeners para os botões de conversão
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById("botaoConverterMoedas").addEventListener.apply('click', converterMoedas);
+});
+
 
 // Conversor de Distância Interestelar
 const converterDistanciaInterestelar = () => {
     const valorEmAnosLuz = parseFloat(document.getElementById("valorAnosLuz").value);
     const valorEmKm = valorEmAnosLuz * 9460730472580.8;
-    document.getElementById("resultadoDistancia").innerText = `${valorEmKm.tofixed(2)} KM`;
+    document.getElementById("resultadoDistancia").innerText = `${valorEmKm.toFixed(2)} KM`;
 }
 
 // Conversosr de criptomoedas
 const converterParaCripto = () => {
     const valorEmReais = parseFloat(document.getElementById("valorReaisCripto").value);
     const valorEmBitcoin = valorEmReais / 225000;
-    document.getElementById("resultadoCripto").innerText = `${valorEmBitcoin.tofixed(2)} BTC`;
+    document.getElementById("resultadoCripto").innerText = `${valorEmBitcoin.toFixed(2)} BTC`;
 }
 
 // Adicionando Event Listeners para os botões de conversão
