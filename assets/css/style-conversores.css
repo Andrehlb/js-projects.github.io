@@ -3,70 +3,91 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  /* Estilos globais */
-  body {
+}
+
+/* Estilos globais */
+body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
     padding: 20px;
     color: #333;
-  }
-  
-  /* Estilos para o container dos cards */
-  .card-container {
+}
+
+/* Estilos para o container dos cards */
+.card-container {
     gap: 20px;
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-  }
-  
-  /* Estilos básicos para cada card */
-  .card {
+}
+
+/* Estilos básicos para cada card */
+.card {
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
     background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin-bottom: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+}
 
-  #conversor-moedas {
-    background-image: url('assets\images\DALLE-2023-11-17-AbstractBackgroundCurrencySymbolsConverterCard.png');
-  
+#conversor-moedas {
+    background-image: url('../images/DALLE-2023-11-17-AbstractBackgroundCurrencySymbolsConverterCard.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#conversor-moedas h2 {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
     /* Efeito de hover */
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* Estilos para conteúdo dentro de cada card */
-.card-content {
-    padding: 20px;
-    text-align: center;
-}
-
-.card-content h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-
-}
-
-/* Responsividade */
-@media (min-width: 600px) {
-    .card-container {
-        justify-content: flex-start;
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .card {
-        margin-right: 20px;
+    /* Estilos para conteúdo dentro de cada card */
+    .card-content {
+        padding: 20px;
+        text-align: center;
     }
-}
+
+    .card-content h2 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 10px;
+
+    }
+
+    /* Responsividade */
+    @media (min-width: 600px) {
+        .card-container {
+            justify-content: flex-start;
+        }
+
+        .card {
+            margin-right: 20px;
+        }
+    }
+
+    .input-field[type="number"]::before {
+        content: 'R$';
+        position: absolute;
+        left: 10%;
+        /* Não esquecer de ajustar o 'top' de acordo com a altura do input */
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+
+    .input-field[type="number"] {
+        padding-left: 30pxs; /* Não esquece3r de ajustar de acordo com o tamanho do texto */
+    }

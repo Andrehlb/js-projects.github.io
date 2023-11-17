@@ -41,13 +41,12 @@ const converterMoedas = async () => {
         const valorConvertido = valorEmReais * taxaConversao; // P4.2 Aqui, valor inserido em reais é multiplicado pela taxa de conversão.
         
         document.getElementById("resultadoMoedas").innerText = `${valorConvertido.toFixed(2)} ${moedaSelecionada}`; // P5 Atulaliza a página web com o valor convertido.
-        document.getElementById("apiS
-        ource").innerText = 'Fonte: https://www.moeda.info/';
+        document.getElementById("apiSource").innerText = 'Fonte: https://www.moeda.info/';
     }   catch (error) {
         console.error('Erro ao converter moedas:', error);
         document.getElementById("resultadoMoedas").innerText = 'Erro ma conversão.';
     }
-};
+}
 
 // Adicionando Event Listeners para os botões de conversão
 document.addEventListener('DOMContentLoaded', () => {
