@@ -1,6 +1,6 @@
 // Utilitários para fazer requisições HTTP
 const fetchData = async () => {
-    const url = 'https://cdn.moeda.info/api/bcb.jason'; // Ebdpoint da API do Banco Central do Brasil.
+    const url = 'https://cdn.moeda.info/api/bcb.json'; // Ebdpoint da API do Banco Central do Brasil.
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -29,7 +29,7 @@ const converterMoedas = async () => {
         const valorEmReais = parseFloat(document.getElementById("valorReais").value); //P1 Captura valor em reais inserido (input) pelo usuário.
         const moedaSelecionada = document.getElementById("moedaSelecionada").value; // P2 Detecta qual moeda foi selecionada no dropdown.
 
-        const dados = await fetchData(); // P3.1 Envia uma solicitação para a API de conversão de moedas.        document.getElementById("apiSource").innerText = 'Source: https://www.moeda.info/';
+        const dados = await fetchData(); // P3.1 Envia requisiçãqo para a API de conversão de moedas.        document.getElementById("apiSource").innerText = 'Source: https://www.moeda.info/';
 
         if (!dados.rates[moedaSelecionada]) { // P3.3 Verifica se a moeda selecionada está disponível na API.}
             throw new Error(`A taxa de câmbio para ${moedaSelecionada} não está disponível.`);
@@ -41,16 +41,21 @@ const converterMoedas = async () => {
         const valorConvertido = valorEmReais * taxaConversao; // P4.2 Aqui, valor inserido em reais é multiplicado pela taxa de conversão.
         
         document.getElementById("resultadoMoedas").innerText = `${valorConvertido.toFixed(2)} ${moedaSelecionada}`; // P5 Atulaliza a página web com o valor convertido.
-        document.getElementById("APIsource").innerText = 'Fonte: https://www.moeda.info/';
+        document.getElementById("apiS
+        ource").innerText = 'Fonte: https://www.moeda.info/';
     }   catch (error) {
         console.error('Erro ao converter moedas:', error);
-        document.getElementeById("resultadoMoedas").innerText = 'Erro ma conversão.';
+        document.getElementById("resultadoMoedas").innerText = 'Erro ma conversão.';
     }
 };
 
 // Adicionando Event Listeners para os botões de conversão
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById("botaoConverterMoedas").addEventListener.apply('click', converterMoedas);
+    const botaoConverterMoedas = document.getElementById("botaoConverterMoedas");
+    if (botaoConverterMoedas) {
+        botaoConverterMoedas.addEventListener('click', converterMoedas);
+    }
+    // Aui, adiciona os Events Listeners para outros botões de conversão.
 });
 
 

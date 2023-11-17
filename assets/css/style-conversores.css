@@ -36,6 +36,9 @@
     margin-bottom: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+
+  #conversor-moedas {
+    background-image: url('assets\images\DALLE-2023-11-17-AbstractBackgroundCurrencySymbolsConverterCard.png');
   
     /* Efeito de hover */
 
