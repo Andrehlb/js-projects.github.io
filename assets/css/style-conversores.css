@@ -56,7 +56,7 @@ body {
 
     /* Estilos para conteúdo dentro de cada card */
     .card-content {
-        padding: 20px;
+        padding: 40px;
         text-align: center;
     }
 
@@ -68,7 +68,7 @@ body {
     }
 
     /* Responsividade */
-    @media (min-width: 600px) {
+    @media (min-width:600px) {
         .card-container {
             justify-content: flex-start;
         }
