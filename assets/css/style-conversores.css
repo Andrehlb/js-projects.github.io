@@ -48,6 +48,40 @@ body {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+#conversor-moedas .card-content {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#conversor-distancia {
+    position: relative;
+    background-image: url('../images/DALLE-Andrehlb-2023-11-18-SophisticatedTechnicalSpace-BackgroundCardEllipticalTrajectoryPlanetStarGraph.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#conversor-distancia::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+#conversor-distancia h2 {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    position: relative;
+}
+
+#conversor-distancia .card-content {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    position: relative;
+}
+
     /* Efeito de hover */
     .card:hover {
         transform: translateY(-5px);

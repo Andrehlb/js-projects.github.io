@@ -76,9 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Conversosr de criptomoedas
-const converterParaCripto = () => {
+const converterParaCripto = async () => {
     const valorEmReais = parseFloat(document.getElementById("valorReaisCripto").value);
-    const valorEmBitcoin = valorEmReais / 225000;
+    const criptoSelecionada = document.getElementById("CriptoSelecionada").value;
     document.getElementById("resultadoCripto").innerText = `${valorEmBitcoin.toFixed(2)} BTC`;
 }
 
