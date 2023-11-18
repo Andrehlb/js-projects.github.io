@@ -48,22 +48,30 @@ const converterMoedas = async () => {
     }
 }
 
-// Adicionando Event Listeners para os botões de conversão
+// Adicionando Event Listeners para os botões de conversão de moedas.
 document.addEventListener('DOMContentLoaded', () => {
     const botaoConverterMoedas = document.getElementById("botaoConverterMoedas");
     if (botaoConverterMoedas) {
         botaoConverterMoedas.addEventListener('click', converterMoedas);
     }
-    // Aui, adiciona os Events Listeners para outros botões de conversão.
+    // Aqui, adiciona os Events Listeners para outros botões de conversão.
 });
 
 
 // Conversor de Distância Interestelar
 const converterDistanciaInterestelar = () => {
     const valorEmAnosLuz = parseFloat(document.getElementById("valorAnosLuz").value);
-    const valorEmKm = valorEmAnosLuz * 9460730472580.8;
-    document.getElementById("resultadoDistancia").innerText = `${valorEmKm.toFixed(2)} KM`;
-}
+    const distanciaEmKm = valorEmAnosLuz * 9460730472580.8; // Um ano-luz é aproximanadamente 9,5 trilhões de km.
+    document.getElementById("resultadoDistancia").innerText = `${distanciaEmKm.toExponential(2)} KM`;
+};
+
+// Adicionando Event Listeners para os botões de conversão de distância interestelar.
+document.addEventListener('DOMContentLoaded', () => {
+    const botaoConverterDistancia = document.getElementById("botaoConverterDistancia");
+    if (botaoConverterDistancia) {
+        botaoConverterDistancia.addEventListener('click', converterDistanciaInterestelar);
+    }
+});
 
 // Conversosr de criptomoedas
 const converterParaCripto = () => {
@@ -73,8 +81,8 @@ const converterParaCripto = () => {
 }
 
 // Adicionando Event Listeners para os botões de conversão
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById("botaoConverterMoedas").addEventListener('click', converterMoedas);
-    document.getElementById("botaoConverterDistancia").addEventListener('click', converterDistanciaInterestelar);
-    document.getElementById("botaoConverterCripto").addEventListener('click', converterParaCripto);
-});
+//document.addEventListener('DOMContentLoaded', () => {
+//    document.getElementById("botaoConverterMoedas").addEventListener('click', converterMoedas);
+//    document.getElementById("botaoConverterDistancia").addEventListener('click', converterDistanciaInterestelar);
+//    document.getElementById("botaoConverterCripto").addEventListener('click', converterParaCripto);
+//});
