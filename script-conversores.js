@@ -62,7 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
 const converterDistanciaInterestelar = () => {
     const valorEmAnosLuz = parseFloat(document.getElementById("valorAnosLuz").value);
     const distanciaEmKm = valorEmAnosLuz * 9460730472580.8; // Um ano-luz é aproximanadamente 9,5 trilhões de km.
-    document.getElementById("resultadoDistancia").innerText = `${distanciaEmKm.toExponential(2)} KM`;
+    const distanciaEmTrilhoesKM = distanciaEmKm / 1e+12; // 1e+12 é a notação científica para 1 trilhão.
+    const resultadoFormatado = distanciaEmTrilhoesKM.toFixed(2) + ' trilhões de KM'; // Limita o número de casas decimais.
+    document.getElementById("resultadoDistancia").innerText = resultadoFormatado;
 };
 
 // Adicionando Event Listeners para os botões de conversão de distância interestelar.
