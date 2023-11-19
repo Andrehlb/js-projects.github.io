@@ -45,7 +45,17 @@
                 <h2>Conversor de Moedas para Criptomoedas</h2>
                 <label for="valorCripto">Valor em Reais (R$)</label>
                 <input type="number" id="valorCripto" placeholder="Valor em Reais (R$)" class="input-field"/>
-                <button  id="botaoConverterCripto" class="convert-button">Converter</button><!-- Elementos do conversor de criptomoedas aqui -->
+                <select id="criptoSelecionada" class="input-field">
+                    <option value="BTC">Bitcoin (BTC)</option>
+                    <option value="ETH">Ethereum (ETH)</option>
+                    <option value="LTC">Litecoin (LTC)</option>
+                    <option value="XRP">Ripple (XRP)</option>
+                    <option value="BCH">Bitcoin Cash (BCH)</option>
+                    <option value="ADA">Cardano (ADA)</option>
+                </select>
+                <button  id="botaoConverterCripto" class="convert-button">Converter</button>
+                <p id="resultadoCripto" class="resultado"></p>
+                
             </div>
         </div>
     </div>

@@ -6,8 +6,8 @@ const fetchData = async () => {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
     return await response.json();
-   // console.log(data); // depuração: logando os dados para ver o que estamos recebendo.
-   // return data;
+    // console.log(data); // depuração: logando os dados para ver o que estamos recebendo.
+    // return data;
 };
 
 // // var valorEmDolar = parseFloat(prompt("Qual o valor em dolar que você quer converter?"))
@@ -35,14 +35,14 @@ const converterMoedas = async () => {
             throw new Error(`A taxa de câmbio para ${moedaSelecionada} não está disponível.`);
         }
 
-       // document.getElementById("apiSource").innerText = 'Source: https://www.moeda.info/'; // P3.2 Atualiza a fonte da API no DOM.
-        
+        // document.getElementById("apiSource").innerText = 'Source: https://www.moeda.info/'; // P3.2 Atualiza a fonte da API no DOM.
+
         const taxaConversao = dados.rates[moedaSelecionada]; // P4.1 Calcula o valor convertido.
         const valorConvertido = valorEmReais * taxaConversao; // P4.2 Aqui, valor inserido em reais é multiplicado pela taxa de conversão.
-        
+
         document.getElementById("resultadoMoedas").innerText = `${valorConvertido.toFixed(2)} ${moedaSelecionada}`; // P5 Atulaliza a página web com o valor convertido.
         document.getElementById("apiSource").innerText = 'Fonte: https://www.moeda.info/';
-    }   catch (error) {
+    } catch (error) {
         console.error('Erro ao converter moedas:', error);
         document.getElementById("resultadoMoedas").innerText = 'Erro ma conversão.';
     }
@@ -77,13 +77,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Conversosr de criptomoedas
 const converterParaCripto = async () => {
-    const valorEmReais = parseFloat(document.getElementById("valorReaisCripto").value);
-    const criptoSelecionada = document.getElementById("CriptoSelecionada").value;
-    document.getElementById("resultadoCripto").innerText = `${valorEmBitcoin.toFixed(2)} BTC`;
-}
+    try {
+        const valorEmReais = parseFloat(document.getElementById("valorReaisCripto").value);
+        const criptoSelecionada = document.getElementById("CriptoSelecionada").value;
+
+        const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=brl`; // Endpoint da API CoinGecko para obter preço de várias criptomoedas em BRL (Reais).
+
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const dados = await response.json();
+
+        const precoCriptoEmReais = dados[criptoSelecionada].brl;
+        const valorEmCripto = valorEmReais / precoCriptoEmReais;
+
+        document.getElementById("resultadoCripto").innerText = `${valorEmCripto.toFixed(8)} ${criptoSelecionada.toUpperCase()}`;
+    } catch (error) {
+        console.error('Erro ao converter criptomoedas:', error);
+        document.getElementById("resultadoCripto").innerText = 'Erro na conversão.';
+    }
+};
 
 // Adicionando Event Listeners para os botões de conversão
-//document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    const botaoConverterCripto = document.getElementById("botaoConverterCripto");
+    if (botaoConverterCripto) {
+        botaoConverterCripto.addEventListener('click', converterParaCripto);
+    }
+});
 //    document.getElementById("botaoConverterMoedas").addEventListener('click', converterMoedas);
 //    document.getElementById("botaoConverterDistancia").addEventListener('click', converterDistanciaInterestelar);
 //    document.getElementById("botaoConverterCripto").addEventListener('click', converterParaCripto);
