@@ -83,8 +83,10 @@ const converterParaCripto = async () => {
 
         // Logs de depuração
         console.log("Valor em reais:", valorEmReais);
+        console.log("Criptomoeda Selecionada:", criptoSelecionada);
 
-        const url = `https://api.coingecko.com/api/v3/simple/price?ids=${criptoSelecionada}&vs_currencies=brl`; // Endpoint da API CoinGecko para obter preço de várias criptomoedas em BRL (Reais).
+        const url = `http://localhost:3000/cripto?cripto=${criptoSelecionada}&valor=${valorEmReais}`; // Endpoint da API CoinGecko para obter preço de várias criptomoedas em BRL (Reais).
+        console.log("URL da requisição:", url);
 
         const response = await fetch(url);
         if (!response.ok) {
