@@ -78,10 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // Conversosr de criptomoedas
 const converterParaCripto = async () => {
     try {
-        const valorEmReais = parseFloat(document.getElementById("valorReaisCripto").value);
-        const criptoSelecionada = document.getElementById("CriptoSelecionada").value;
+        const valorEmReais = parseFloat(document.getElementById("valorCripto").value);
+        const criptoSelecionada = document.getElementById("criptoSelecionada").value;
 
-        const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=brl`; // Endpoint da API CoinGecko para obter preço de várias criptomoedas em BRL (Reais).
+        // Logs de depuração
+        console.log("Valor em reais:", valorEmReais);
+
+        const url = `https://api.coingecko.com/api/v3/simple/price?ids=${criptoSelecionada}&vs_currencies=brl`; // Endpoint da API CoinGecko para obter preço de várias criptomoedas em BRL (Reais).
 
         const response = await fetch(url);
         if (!response.ok) {
@@ -101,12 +104,5 @@ const converterParaCripto = async () => {
 
 // Adicionando Event Listeners para os botões de conversão
 document.addEventListener('DOMContentLoaded', () => {
-    const botaoConverterCripto = document.getElementById("botaoConverterCripto");
-    if (botaoConverterCripto) {
-        botaoConverterCripto.addEventListener('click', converterParaCripto);
-    }
+    document.getElementById("botaoConverterCripto").addEventListener('click', converterParaCripto);
 });
-//    document.getElementById("botaoConverterMoedas").addEventListener('click', converterMoedas);
-//    document.getElementById("botaoConverterDistancia").addEventListener('click', converterDistanciaInterestelar);
-//    document.getElementById("botaoConverterCripto").addEventListener('click', converterParaCripto);
-//});
