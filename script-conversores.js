@@ -88,10 +88,6 @@ const converterParaCripto = async () => {
         }
 
         const dados = await response.json();
-
-        const taxaCambioUSDparaBRL = await obterTaxaCambioUSDparaBRL(); // Obtém a taxa de câmbio USD para BRL.
-        const valorEmCripto = (valorEmReais / taxaCambioUSDparaBRL) / dados.brl; // Calcula o valor convertido.
-
         document.getElementById("resultadoCripto").innerText = `${valorEmCripto.toFixed(8)} ${criptoSelecionada.toUpperCase()}`;
     } catch (error) {
         console.error('Erro ao converter criptomoedas:', error);
@@ -103,10 +99,3 @@ const converterParaCripto = async () => {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("botaoConverterCripto").addEventListener('click', converterParaCripto);
 });
-
-// Implementar a função obterTaxaCambioUSDparaBRL
-async function obterTaxaCambioUSDparaBRL() {
-   // Fazer uma requisição para obter a taxa de câmbio de USD para BRL.
-   // Por exemplo, usando outra aPI ou um valor fixo
-   return 5.32;
-}
