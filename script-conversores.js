@@ -83,15 +83,16 @@ const converterParaCripto = async () => {
 
         const url = `http://localhost:3000/cripto?cripto=${criptoSelecionada}`; // Endpoint da API CoinGecko para obter preço de várias criptomoedas em BRL (Reais).
         const response = await fetch(url);
-
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const dados = await response.json();
-        const valorEmCripto = valorEmReais / dados.brl; // Calcula o valor convertido.
 
-        document.getElementById("resultadoCripto").innerText = `${valorEmCripto.toFixed(8)} ${criptoSelecionada.split('-')[0].toUpperCase()}`;
+        const taxaCambioUSDparaBRL = await obterTaxaCambioUSDparaBRL(); // Obtém a taxa de câmbio USD para BRL.
+        const valorEmCripto = (valorEmReais / taxaCambioUSDparaBRL) / dados.brl; // Calcula o valor convertido.
+
+        document.getElementById("resultadoCripto").innerText = `${valorEmCripto.toFixed(8)} ${criptoSelecionada.toUpperCase()}`;
     } catch (error) {
         console.error('Erro ao converter criptomoedas:', error);
         document.getElementById("resultadoCripto").innerText = 'Erro na conversão.';
@@ -102,3 +103,10 @@ const converterParaCripto = async () => {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("botaoConverterCripto").addEventListener('click', converterParaCripto);
 });
+
+// Implementar a função obterTaxaCambioUSDparaBRL
+async function obterTaxaCambioUSDparaBRL() {
+   // Fazer uma requisição para obter a taxa de câmbio de USD para BRL.
+   // Por exemplo, usando outra aPI ou um valor fixo
+   return 5.32;
+}
