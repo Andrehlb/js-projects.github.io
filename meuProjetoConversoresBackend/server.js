@@ -1,5 +1,5 @@
 import express from 'express';
-import fetch from 'node-fetch';
+import axios from 'axios';
 import cors from 'cors';
 
 const app = express();
@@ -11,7 +11,11 @@ app.use(express.json());
 app.get('/cripto', async (req, res) => {
     try {
         const cripto = req.query.cripto;
-        const response = await fetch(`https://api.coinpaprika.com/v1/tickers/${cripto}`);
+        const baseUrl = "https://api-pub.bitfinex.com/v2/";
+        const pathParams = "ticker";
+        const queryParams = `t${cripto}USD`;
+
+        const response = await axios.get(`${baseUrl}/${pathParams}/${queryParams}`)
         
         if (!response.ok) {
             throw new Error(`Erro na API! status: ${response.status}`);
