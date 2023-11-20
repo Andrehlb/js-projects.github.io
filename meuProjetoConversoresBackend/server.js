@@ -15,18 +15,11 @@ app.get('/cripto', async (req, res) => {
         const pathParams = "ticker";
         const queryParams = `t${cripto}USD`;
 
-        const response = await axios.get(`${baseUrl}/${pathParams}/${queryParams}`)
-        
-        if (!response.ok) {
-            throw new Error(`Erro na API! status: ${response.status}`);
-        }
-       
-        const data = await response.json();
-        res.send({brl: data.quotes.BRL.price }); // Envia o preço da criptomoeda em BRL (Reais).
-
+        const response = await axios.get(`${baseUrl}/${pathParams}/${queryParams}`);
+        const data = response.data;
+        res.send({ brl: data[6]}); // Envia o preço da criptomoeda em BRL (Reais).
     } catch (error) {
         console.error('Erro ao buscar dados da API:', error);
-        res.status(500).send('Erro ao buscar dados na API');
     }
 });
 
