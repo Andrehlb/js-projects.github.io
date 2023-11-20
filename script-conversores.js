@@ -79,25 +79,19 @@ document.addEventListener('DOMContentLoaded', () => {
 const converterParaCripto = async () => {
     try {
         const valorEmReais = parseFloat(document.getElementById("valorCripto").value);
-        const criptoSelecionada = document.getElementById("criptoSelecionada").value;
+        const criptoSelecionada = document.getElementById("criptoSelecionada").value; // Exemplo 'btc-bitcoin'.
 
-        // Logs de depuração
-        console.log("Valor em reais:", valorEmReais);
-        console.log("Criptomoeda Selecionada:", criptoSelecionada);
-
-        const url = `http://localhost:3000/cripto?cripto=${criptoSelecionada}&valor=${valorEmReais}`; // Endpoint da API CoinGecko para obter preço de várias criptomoedas em BRL (Reais).
-        console.log("URL da requisição:", url);
-
+        const url = `http://localhost:3000/cripto?cripto=${criptoSelecionada}`; // Endpoint da API CoinGecko para obter preço de várias criptomoedas em BRL (Reais).
         const response = await fetch(url);
+
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+
         const dados = await response.json();
+        const valorEmCripto = valorEmReais / dados.brl; // Calcula o valor convertido.
 
-        const precoCriptoEmReais = dados[criptoSelecionada].brl;
-        const valorEmCripto = valorEmReais / precoCriptoEmReais;
-
-        document.getElementById("resultadoCripto").innerText = `${valorEmCripto.toFixed(8)} ${criptoSelecionada.toUpperCase()}`;
+        document.getElementById("resultadoCripto").innerText = `${valorEmCripto.toFixed(8)} ${criptoSelecionada.split('-')[0].toUpperCase()}`;
     } catch (error) {
         console.error('Erro ao converter criptomoedas:', error);
         document.getElementById("resultadoCripto").innerText = 'Erro na conversão.';
