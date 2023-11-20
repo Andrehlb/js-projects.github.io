@@ -79,15 +79,21 @@ document.addEventListener('DOMContentLoaded', () => {
 const converterParaCripto = async () => {
     try {
         const valorEmReais = parseFloat(document.getElementById("valorCripto").value);
-        const criptoSelecionada = document.getElementById("criptoSelecionada").value; // Exemplo 'btc-bitcoin'.
+        const criptoSelecionada = document.getElementById("criptoSelecionada").value;
 
-        const url = `http://localhost:3000/cripto?cripto=${criptoSelecionada}`; // Endpoint da API CoinGecko para obter preço de várias criptomoedas em BRL (Reais).
+        if (isNaN(valorEmReais)) {
+            throw new Error('O valor inserido não é um número válido.');
+        }
+
+        const url = `http://localhost:3000/cripto?cripto=${criptoSelecionada}&valor=${valorEmReais}`; // Endpoint da API CoinGecko para obter preço de várias criptomoedas em BRL (Reais).
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const dados = await response.json();
+        const valorEmCripto = dados.valorConvertido; // Supondo que a API retorna um objeto com a propriedade 'valorConvertido'.
+        
         document.getElementById("resultadoCripto").innerText = `${valorEmCripto.toFixed(8)} ${criptoSelecionada.toUpperCase()}`;
     } catch (error) {
         console.error('Erro ao converter criptomoedas:', error);
