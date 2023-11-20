@@ -11,7 +11,7 @@ app.use(express.json());
 app.get('/cripto', async (req, res) => {
     try {
         const cripto = req.query.cripto; // Exemplo: 'btc-bitcoin'.
-        const valorReais = req.query..valor // Exemplo: 100.
+        const valorReais = req.query.valor // Exemplo: 100.
 
         // Busca a taxa de câmbio de USD para BRL
         const taxaCambio = await axios.get('https://api.exchangerate-api.com/v4/latest/USD');
