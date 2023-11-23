@@ -37,6 +37,7 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Estilos para cada card conversor-moedas */
 #conversor-moedas {
     background-image: url('../images/DALLE-2023-11-17-AbstractBackgroundCurrencySymbolsConverterCard.png');
     background-size: cover;
@@ -52,6 +53,8 @@ body {
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+
+/* Estilos para cada card conversor-disancia */
 #conversor-distancia {
     position: relative;
     background-image: url('../images/DALLE-Andrehlb-2023-11-18-SophisticatedTechnicalSpace-BackgroundCardEllipticalTrajectoryPlanetStarGraph.png');
@@ -82,46 +85,78 @@ body {
     position: relative;
 }
 
-    /* Efeito de hover */
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+/* Estilos para cada card conversor-cripto */
+#conversor-cripto {
+    position: relative;
+    background-image: url('../images/DALLE-Andrehlb-2023-11-20-BackGround-Card_Conversor_de_Moedas_para_Criptomoedas.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#conversor-cripto::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+#conversor-cripto h2 {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    position: relative;
+}
+
+#conversor-cripto .card-content {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    position: relative;
+}
+
+/* Efeito de hover */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para conteúdo dentro de cada card */
+.card-content {
+    padding: 40px;
+    text-align: center;
+}
+
+.card-content h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+
+}
+
+/* Responsividade */
+@media (min-width:600px) {
+    .card-container {
+        justify-content: flex-start;
     }
 
-    /* Estilos para conteúdo dentro de cada card */
-    .card-content {
-        padding: 40px;
-        text-align: center;
+    .card {
+        margin-right: 20px;
     }
+}
 
-    .card-content h2 {
-        font-size: 24px;
-        color: #333;
-        margin-bottom: 10px;
+.input-field[type="number"]::before {
+    content: 'R$';
+    position: absolute;
+    left: 10%;
+    /* Não esquecer de ajustar o 'top' de acordo com a altura do input */
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
 
-    }
-
-    /* Responsividade */
-    @media (min-width:600px) {
-        .card-container {
-            justify-content: flex-start;
-        }
-
-        .card {
-            margin-right: 20px;
-        }
-    }
-
-    .input-field[type="number"]::before {
-        content: 'R$';
-        position: absolute;
-        left: 10%;
-        /* Não esquecer de ajustar o 'top' de acordo com a altura do input */
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-    }
-
-    .input-field[type="number"] {
-        padding-left: 30pxs; /* Não esquece3r de ajustar de acordo com o tamanho do texto */
-    }
+.input-field[type="number"] {
+    padding-left: 30pxs;
+    /* Não esquece3r de ajustar de acordo com o tamanho do texto */
+}
