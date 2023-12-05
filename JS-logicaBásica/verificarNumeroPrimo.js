@@ -19,6 +19,6 @@ function isPrime(number) {
 const testNumber = 17;
 if (isPrime(testNumber)) {
     console.log(`${testNumber} é um número primo`);
-} else { 
+} else {
     console.log(`${testNumber} não é um número primo`);
 }
