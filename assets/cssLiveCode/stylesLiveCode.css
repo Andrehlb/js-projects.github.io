@@ -33,12 +33,38 @@ header .container {
 
 header img {
     height: 180px;
+}
 
 #checkbox-menu {
     display: none;
 }
 
-.main-navigation
+.main-navigation {
+    background:  #313131;
+    color: #ffffff
+}
+
+.menu {
+    list-style-type: none;
+}
+
+.menu-item {
+    display: inline-block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+.submenu-item {
+    display:block;
+    padding: 10px;
+    text-decoration: mone;
+    color: #000000;
+}
 
 header nav ul {
     display: flex;
@@ -58,7 +84,4 @@ header nav ul li a:hover {
     
 }
 
-header img {
-    height: 180px;
-}
 
