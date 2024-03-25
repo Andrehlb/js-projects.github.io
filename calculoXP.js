@@ -12,12 +12,14 @@ function calculoXP(num1, num2) {
     return num1 * num2 * 100;
 }
 
+let xpGanho
+
 // verificar o intervalo de num1 e num2 que são os valores da dificuldade da batalha
 if (num2 < 1 || num2 > 100) {
-    print('Dificuldade da batalha inválida');
+    print("Dificuldade da batalha inválido");
 }else{
     // calcular a quatidade de XP ganhos
-    let xpGanho = calculoXP(num1, num2);
+    xpGanho = calculoXP(num1, num2);
 
     // mostrar (imprimir) a quantidade de XP ganhos
     print ('Você ganhou ', xpGanho, ' de XP!');
