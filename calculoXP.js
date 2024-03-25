@@ -4,16 +4,14 @@
 
 // Para converter os valores inseridos na entrada, usar a função JavaScript parseInt() que converte a parte inicial da string em um número inteiro.
 
-// como devo fazer o código para que ele funcione corretamente?
-
+// Lê uma linha com dado de entrada do 
+Ler nivelMonstro (num1)
+Ler nivrlDificuldade (num2)
 
 // Função para calcular XP ganhos em uma batalha
 function calculoXP(num1, num2) {
     return num1 * num2 * 100;
 }
-
-Ler nivelMonstro (num1)
-Ler nivrlDificuldade (num2)
 
 Se num2 < 1 ou num2 > 100
 Entao
