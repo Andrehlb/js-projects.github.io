@@ -1,0 +1,20 @@
+/* Arquivo: style.css */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+h2 {
+    color: #333;
+}
+
+canvas {
+    /* O !important garante que a borda apareça mesmo se o navegador tentar esconder */
+    border: 1px solid black !important; 
+    background-color: #f0f0f0;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}

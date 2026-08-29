@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokenpô - Aula 4</title>
+    <style>
+        /* CSS - Estilização e Animação */
+        body { 
+            font-family: 'Arial', sans-serif; 
+            text-align: center; 
+            background-color: #f0f0f0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        h1 { color: #333; }
+        .game-area { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+            max-width: 400px;
+            width: 100%;
+        }
+        .choices { 
+            display: flex; 
+            gap: 20px; 
+            justify-content: center; 
+            margin-top: 20px; 
+        }
+        button { 
+            padding: 15px 25px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            border: none; 
+            border-radius: 5px; 
+            background-color: #007bff; 
+            color: white; 
+            transition: transform 0.2s, background-color 0.2s; 
+        }
+        
+        /* Animação solicitada no roteiro (hover) */
+        button:hover { 
+            transform: scale(1.1); 
+            background-color: #0056b3; 
+        }
+        button:active { 
+            transform: scale(0.95); 
+        }
+
+        #resultado { 
+            margin-top: 30px; 
+            font-size: 1.2em; 
+            font-weight: bold; 
+            min-height: 50px; 
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .win { color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
+        .lose { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
+        .draw { color: #856404; background-color: #fff3cd; border: 1px solid #ffeeba; }
+    </style>
+</head>
+<body>
+    <div class="game-area">
+        <h1>Jokenpô</h1>
+        <p>Pedra, Papel e Tesoura</p>
+        <p>Escolha sua jogada:</p>
+        
+        <div class="choices">
+            <button onclick="jogar('pedra')">🪨 Pedra</button>
+            <button onclick="jogar('papel')">📄 Papel</button>
+            <button onclick="jogar('tesoura')">✂️ Tesoura</button>
+        </div>
+
+        <div id="resultado"></div>
+        
+        <button onclick="limpar()" style="margin-top: 20px; background-color: #6c757d;">🔄 Reiniciar</button>
+    </div>
+
+    <script>
+        // JavaScript - Lógica do Jogo
+        function jogar(escolhaUsuario) {
+            const opcoes = ['pedra', 'papel', 'tesoura'];
+            const escolhaComputador = opcoes[Math.floor(Math.random() * 3)];
+            const divResultado = document.getElementById('resultado');
+            
+            let mensagem = '';
+            let classeCor = '';
+
+            // Lógica de comparação (Regras do jogo)
+            if (escolhaUsuario === escolhaComputador) {
+                mensagem = `Empate! <br> Você: ${escolhaUsuario} <br> PC: ${escolhaComputador}`;
+                classeCor = 'draw';
+            } else if (
+                (escolhaUsuario === 'pedra' && escolhaComputador === 'tesoura') ||
+                (escolhaUsuario === 'papel' && escolhaComputador === 'pedra') ||
+                (escolhaUsuario === 'tesoura' && escolhaComputador === 'papel')
+            ) {
+                mensagem = `Vitória! <br> Você: ${escolhaUsuario} <br> PC: ${escolhaComputador}`;
+                classeCor = 'win';
+            } else {
+                mensagem = `Derrota! <br> Você: ${escolhaUsuario} <br> PC: ${escolhaComputador}`;
+                classeCor = 'lose';
+            }
+
+            // Manipulação do DOM para exibir resultado
+            divResultado.innerHTML = mensagem;
+            divResultado.className = classeCor;
+        }
+
+        function limpar() {
+            const divResultado = document.getElementById('resultado');
+            divResultado.innerHTML = '';
+            divResultado.className = '';
+        }
+    </script>
+</body>
+</html>
